@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F0022831965227600B3E3BD /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0022821965227600B3E3BD /* Secrets.m */; };
+		2F002285196541C600B3E3BD /* Secrets.m.template in Resources */ = {isa = PBXBuildFile; fileRef = 2F002284196541C600B3E3BD /* Secrets.m.template */; };
 		2F513FDA1958990F00A416C7 /* metro.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F513FD91958990F00A416C7 /* metro.png */; };
 		2F513FDC1958BA1100A416C7 /* metro_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F513FDB1958BA1100A416C7 /* metro_large.png */; };
 		2F513FDF195BF48800A416C7 /* TableRouteViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FDE195BF48800A416C7 /* TableRouteViewCell.m */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		2F0022811965227600B3E3BD /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Secrets.h; path = ../Secrets.h; sourceTree = "<group>"; };
 		2F0022821965227600B3E3BD /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Secrets.m; path = ../Secrets.m; sourceTree = "<group>"; };
+		2F002284196541C600B3E3BD /* Secrets.m.template */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Secrets.m.template; sourceTree = SOURCE_ROOT; };
 		2F513FD91958990F00A416C7 /* metro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro.png; sourceTree = "<group>"; };
 		2F513FDB1958BA1100A416C7 /* metro_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro_large.png; sourceTree = "<group>"; };
 		2F513FDD195BF48800A416C7 /* TableRouteViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableRouteViewCell.h; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				2F0022811965227600B3E3BD /* Secrets.h */,
 				2F0022821965227600B3E3BD /* Secrets.m */,
+				2F002284196541C600B3E3BD /* Secrets.m.template */,
 				2F513FE3195C43E000A416C7 /* Route */,
 				2FBECBD1195753C500A879AE /* slAppDelegate.h */,
 				2FBECBD2195753C500A879AE /* slAppDelegate.m */,
@@ -329,6 +332,7 @@
 				2F513FDA1958990F00A416C7 /* metro.png in Resources */,
 				2F513FDC1958BA1100A416C7 /* metro_large.png in Resources */,
 				2F513FF4195DE5F000A416C7 /* stations.csv in Resources */,
+				2F002285196541C600B3E3BD /* Secrets.m.template in Resources */,
 				2FBECBCD195753C500A879AE /* InfoPlist.strings in Resources */,
 				2FBECBD8195753C500A879AE /* Images.xcassets in Resources */,
 			);
