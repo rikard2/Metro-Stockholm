@@ -14,7 +14,6 @@
 		2F513FE2195C0BF100A416C7 /* MetroDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FE1195C0BF100A416C7 /* MetroDrawing.m */; };
 		2F513FE6195C43F200A416C7 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FE5195C43F200A416C7 /* Route.m */; };
 		2F513FE9195C4B7300A416C7 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FE8195C4B7300A416C7 /* Station.m */; };
-		2F513FEC195CB3DD00A416C7 /* MutableURLRequestHttps.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FEB195CB3DD00A416C7 /* MutableURLRequestHttps.m */; };
 		2F513FEF195D550100A416C7 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FEE195D550100A416C7 /* TBXML.m */; };
 		2F513FF2195DA63E00A416C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FF1195DA63E00A416C7 /* Helper.m */; };
 		2F513FF4195DE5F000A416C7 /* stations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2F513FF3195DE5F000A416C7 /* stations.csv */; };
@@ -40,9 +39,6 @@
 		2FBECBEA195753C500A879AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FBECBE8195753C500A879AE /* InfoPlist.strings */; };
 		2FBECBEC195753C500A879AE /* SL4EverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECBEB195753C500A879AE /* SL4EverTests.m */; };
 		2FBECBF6195753DE00A879AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBECBF5195753DE00A879AE /* Main.storyboard */; };
-		2FBECBFA1957546B00A879AE /* RouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FBECBF91957546B00A879AE /* RouteView.xib */; };
-		2FBECBFD195754EC00A879AE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECBFC195754EC00A879AE /* MainViewController.m */; };
-		2FBECC001957603F00A879AE /* RouteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECBFF1957603F00A879AE /* RouteView.m */; };
 		2FBECC0319576C8000A879AE /* RouteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECC0219576C8000A879AE /* RouteTableViewController.m */; };
 		2FBECC0619583D1300A879AE /* MetroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECC0519583D1300A879AE /* MetroViewController.m */; };
 		2FBECC0919583D3000A879AE /* MetroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECC0819583D3000A879AE /* MetroView.m */; };
@@ -71,8 +67,6 @@
 		2F513FE5195C43F200A416C7 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		2F513FE7195C4B7300A416C7 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
 		2F513FE8195C4B7300A416C7 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
-		2F513FEA195CB3DD00A416C7 /* MutableURLRequestHttps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableURLRequestHttps.h; sourceTree = "<group>"; };
-		2F513FEB195CB3DD00A416C7 /* MutableURLRequestHttps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableURLRequestHttps.m; sourceTree = "<group>"; };
 		2F513FED195D550100A416C7 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		2F513FEE195D550100A416C7 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		2F513FF0195DA63E00A416C7 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
@@ -109,11 +103,6 @@
 		2FBECBE7195753C500A879AE /* SL4EverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SL4EverTests-Info.plist"; sourceTree = "<group>"; };
 		2FBECBEB195753C500A879AE /* SL4EverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SL4EverTests.m; sourceTree = "<group>"; };
 		2FBECBF5195753DE00A879AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		2FBECBF91957546B00A879AE /* RouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteView.xib; sourceTree = "<group>"; };
-		2FBECBFB195754EC00A879AE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		2FBECBFC195754EC00A879AE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		2FBECBFE1957603F00A879AE /* RouteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteView.h; sourceTree = "<group>"; };
-		2FBECBFF1957603F00A879AE /* RouteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteView.m; sourceTree = "<group>"; };
 		2FBECC0119576C8000A879AE /* RouteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteTableViewController.h; sourceTree = "<group>"; };
 		2FBECC0219576C8000A879AE /* RouteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteTableViewController.m; sourceTree = "<group>"; };
 		2FBECC0419583D1300A879AE /* MetroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroViewController.h; sourceTree = "<group>"; };
@@ -167,8 +156,6 @@
 				2F513FF3195DE5F000A416C7 /* stations.csv */,
 				2F513FED195D550100A416C7 /* TBXML.h */,
 				2F513FEE195D550100A416C7 /* TBXML.m */,
-				2F513FEA195CB3DD00A416C7 /* MutableURLRequestHttps.h */,
-				2F513FEB195CB3DD00A416C7 /* MutableURLRequestHttps.m */,
 				2FBECBC8195753C500A879AE /* SL4Ever */,
 				2FBECBE5195753C500A879AE /* SL4EverTests */,
 				2FBECBBF195753C500A879AE /* Frameworks */,
@@ -225,11 +212,6 @@
 				2FBECC0219576C8000A879AE /* RouteTableViewController.m */,
 				2F513FF0195DA63E00A416C7 /* Helper.h */,
 				2F513FF1195DA63E00A416C7 /* Helper.m */,
-				2FBECBF91957546B00A879AE /* RouteView.xib */,
-				2FBECBFE1957603F00A879AE /* RouteView.h */,
-				2FBECBFF1957603F00A879AE /* RouteView.m */,
-				2FBECBFB195754EC00A879AE /* MainViewController.h */,
-				2FBECBFC195754EC00A879AE /* MainViewController.m */,
 				2FBECC0419583D1300A879AE /* MetroViewController.h */,
 				2FBECC0519583D1300A879AE /* MetroViewController.m */,
 				2FBECC0719583D3000A879AE /* MetroView.h */,
@@ -348,7 +330,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FBECBFA1957546B00A879AE /* RouteView.xib in Resources */,
 				2FBECBF6195753DE00A879AE /* Main.storyboard in Resources */,
 				2F513FDA1958990F00A416C7 /* metro.png in Resources */,
 				2F513FDC1958BA1100A416C7 /* metro_large.png in Resources */,
@@ -377,9 +358,7 @@
 				2FBECC0919583D3000A879AE /* MetroView.m in Sources */,
 				2F514000195F4CA100A416C7 /* FavouritesTableViewController.m in Sources */,
 				2F513FE9195C4B7300A416C7 /* Station.m in Sources */,
-				2F513FEC195CB3DD00A416C7 /* MutableURLRequestHttps.m in Sources */,
 				2F513FF2195DA63E00A416C7 /* Helper.m in Sources */,
-				2FBECC001957603F00A879AE /* RouteView.m in Sources */,
 				2FBECC0319576C8000A879AE /* RouteTableViewController.m in Sources */,
 				2F513FE6195C43F200A416C7 /* Route.m in Sources */,
 				2F514006195FF94A00A416C7 /* StationTableViewController.m in Sources */,
@@ -390,7 +369,6 @@
 				2F513FFD195EF46000A416C7 /* PositionTableViewController.m in Sources */,
 				2FBECBD6195753C500A879AE /* SL4Ever.xcdatamodeld in Sources */,
 				2FBECC0619583D1300A879AE /* MetroViewController.m in Sources */,
-				2FBECBFD195754EC00A879AE /* MainViewController.m in Sources */,
 				2F513FEF195D550100A416C7 /* TBXML.m in Sources */,
 				2F0022831965227600B3E3BD /* Secrets.m in Sources */,
 				2F514003195FF1B700A416C7 /* NewFavouriteTableViewController.m in Sources */,
