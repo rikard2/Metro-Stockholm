@@ -25,8 +25,9 @@
 }
 
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during
+/*
+    Räkna ut höjden för vår View. Används för att sätta höjden på en cell i en TableView.
+*/
 + (NSInteger)calculateRowHeight :(Route*)route {
     int row = 2;
     
@@ -39,14 +40,17 @@
         }
         row += 6;
     }
-    int cnt = route.subRoutes.count;
-    NSLog([NSString stringWithFormat:@"Row: %d", row]);
+    
     return row * 14 + 40;
 }
 
+/*
+    Rita vår View. Säkert kass prestanda, men det spelar inte så stor roll eftersom funktionen ändå anropas sällan (vid alla ändringar + scrollning etc.)
+
+    TODO: Snygga till det här
+*/
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"drawRect");
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, UIColor.whiteColor.CGColor);
     CGContextFillRect(context, self.bounds);
@@ -83,18 +87,13 @@
             row += 3;
         }
         
-        if (r.transportLine == 17)
-        {
-            col = MetroDrawing.blueLineColor;
-        }
-        
         [m drawConnectingLine:context :column :row :column :row + 6 :col];
         
         
         NSCalendar *calendar = [NSCalendar currentCalendar];
         NSDateComponents *originComponents = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:r.originDate];
         NSDateComponents *destComponents = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:r.destDate];
-        //components.hour;
+        
         NSString *orginDateStr = [NSString stringWithFormat:@"%01d:%02d", originComponents.hour, originComponents.minute];
         NSString *destDateStr = [NSString stringWithFormat:@"%01d:%02d", destComponents.hour, destComponents.minute];
 
@@ -109,7 +108,6 @@
         
         for (int z = 0; z < r.originDatesFuture.count; z++) {
             if (z >= 2) break;
-            //[m drawLineText:context :false :[Helper dateTime:[r.destDatesFututes objectAtIndex:z]] :0 :row + 7 + (z * 1) :MetroDrawing.grayConnectingLineColor];
         }
         
         NSString *destStationText = [NSString stringWithFormat:@"%@ (%@)", r.destinationStation.name, r.transportTowards];

@@ -18,7 +18,6 @@
 		2F513FF2195DA63E00A416C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FF1195DA63E00A416C7 /* Helper.m */; };
 		2F513FF4195DE5F000A416C7 /* stations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2F513FF3195DE5F000A416C7 /* stations.csv */; };
 		2F513FF7195DF9CD00A416C7 /* FavouriteRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FF6195DF9CD00A416C7 /* FavouriteRoute.m */; };
-		2F513FFA195EE61A00A416C7 /* StationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FF9195EE61A00A416C7 /* StationPickerViewController.m */; };
 		2F513FFD195EF46000A416C7 /* PositionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FFC195EF46000A416C7 /* PositionTableViewController.m */; };
 		2F514000195F4CA100A416C7 /* FavouritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F513FFF195F4CA100A416C7 /* FavouritesTableViewController.m */; };
 		2F514003195FF1B700A416C7 /* NewFavouriteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F514002195FF1B700A416C7 /* NewFavouriteTableViewController.m */; };
@@ -74,8 +73,6 @@
 		2F513FF3195DE5F000A416C7 /* stations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stations.csv; sourceTree = "<group>"; };
 		2F513FF5195DF9CD00A416C7 /* FavouriteRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteRoute.h; sourceTree = "<group>"; };
 		2F513FF6195DF9CD00A416C7 /* FavouriteRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteRoute.m; sourceTree = "<group>"; };
-		2F513FF8195EE61A00A416C7 /* StationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationPickerViewController.h; sourceTree = "<group>"; };
-		2F513FF9195EE61A00A416C7 /* StationPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationPickerViewController.m; sourceTree = "<group>"; };
 		2F513FFB195EF46000A416C7 /* PositionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionTableViewController.h; sourceTree = "<group>"; };
 		2F513FFC195EF46000A416C7 /* PositionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTableViewController.m; sourceTree = "<group>"; };
 		2F513FFE195F4CA100A416C7 /* FavouritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesTableViewController.h; sourceTree = "<group>"; };
@@ -206,8 +203,6 @@
 				2F513FFF195F4CA100A416C7 /* FavouritesTableViewController.m */,
 				2F513FFB195EF46000A416C7 /* PositionTableViewController.h */,
 				2F513FFC195EF46000A416C7 /* PositionTableViewController.m */,
-				2F513FF8195EE61A00A416C7 /* StationPickerViewController.h */,
-				2F513FF9195EE61A00A416C7 /* StationPickerViewController.m */,
 				2FBECC0119576C8000A879AE /* RouteTableViewController.h */,
 				2FBECC0219576C8000A879AE /* RouteTableViewController.m */,
 				2F513FF0195DA63E00A416C7 /* Helper.h */,
@@ -364,7 +359,6 @@
 				2F514006195FF94A00A416C7 /* StationTableViewController.m in Sources */,
 				2F513FDF195BF48800A416C7 /* TableRouteViewCell.m in Sources */,
 				2FBECBCF195753C500A879AE /* main.m in Sources */,
-				2F513FFA195EE61A00A416C7 /* StationPickerViewController.m in Sources */,
 				2FBECBD3195753C500A879AE /* slAppDelegate.m in Sources */,
 				2F513FFD195EF46000A416C7 /* PositionTableViewController.m in Sources */,
 				2FBECBD6195753C500A879AE /* SL4Ever.xcdatamodeld in Sources */,
