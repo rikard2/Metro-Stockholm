@@ -78,10 +78,9 @@
     
     //UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
     UIFont *font = [UIFont systemFontOfSize:13];
-    CGSize stringSize = [text sizeWithFont:font];
+    CGSize stringSize = [text sizeWithAttributes:@{NSFontAttributeName: font}];
     
-    // Spara "statet". Vi vill bara rotera en liten del.
-    CGContextSaveGState(context);
+    CGContextSaveGState(context); // Spara "statet". Vi vill bara rotera en liten del.
     
     int textMaxWidth = 100;
     
@@ -102,11 +101,23 @@
     // Tänk på att vid rotation vrider vi origo med CGContextTranslateCTM
     if (rotate) {
         // Positionera den roterade texten efter vår nya origo.
-        [text drawInRect:CGRectMake(-targetX + (textMaxWidth - stringSize.width) - width * 3,
-                                    -width * 2, stringSize.width,stringSize.height) withFont:font];
+        [text drawInRect: CGRectMake(
+                                     column * width + width * 2 + 1,
+                                     row * width - width / 2 + width / 2.3,
+                                     stringSize.width,
+                                     stringSize.height
+                                     )
+          withAttributes:@{}];
+         
     } else {
         // Positionera texten (inte efter ny origo).
-        [text drawInRect:CGRectMake(column * width + width * 2 + 1,row * width - width / 2 + width / 2.3, stringSize.width,stringSize.height) withFont:font];
+        [text   drawInRect:CGRectMake(
+                                    column * width + width * 2 + 1,
+                                    row * width - width / 2 + width / 2.3,
+                                    stringSize.width,
+                                    stringSize.height
+                                    )
+            withAttributes:@{NSFontAttributeName: font}];
     }
     
     CGContextRestoreGState(context);
@@ -121,8 +132,6 @@
                                          green:233.0f/255.0f
                                           blue:233.0f/255.0f
                                          alpha:1.0f];
-    
-    UIColor *blackColor = [UIColor grayColor];
     
     CGContextBeginPath(context);
     
@@ -145,7 +154,7 @@
 /*
     Rita cirkel för tunnelbanestation.
 */
-- (void )drawStopCircle :(CGContextRef)context :(NSInteger)column :(NSInteger)row :(BOOL)ending :(UIColor*)color {
+- (void) drawStopCircle :(CGContextRef)context :(NSInteger)column :(NSInteger)row :(BOOL)ending :(UIColor*)color {
     int extra = (ending) ? 5 : 2;
     
     CGRect rect = CGRectMake(column * width - extra, row * width - extra, width + extra * 2, width + extra * 2);

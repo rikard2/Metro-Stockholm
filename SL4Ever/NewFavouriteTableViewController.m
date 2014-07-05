@@ -48,14 +48,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     if (section == 0) {
         return 1;
     }
@@ -88,7 +85,6 @@
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"StationCell" forIndexPath:indexPath];
-        NSInteger as = self.activeStation;
         Station *station = [self.stations objectAtIndex:self.activeStation];
         [(UILabel*)[cell viewWithTag:3] setText:station.name];
     }

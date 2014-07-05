@@ -41,11 +41,6 @@
     UIColor *grayLine = MetroDrawing.grayConnectingLineColor;
     UIColor *redLine = MetroDrawing.redLineColor;
 
-    
-    //[self drawGridLines:context];
-    UIColor *lineColor = UIColor.greenColor;
-    // Gröna linjen
-    
     [self drawConnectingLine:context :1 :68 :7 :68 :grayLine];
     
     
@@ -228,7 +223,6 @@
     CGFloat restRadians = M_PI / 180 * (float) (90 - 50);
     
     int targetX = textMaxWidth * (sinf(restRadians));
-    int targetY = stringSize.width * cosf(restRadians);
     
     if (rotate) {
         CGContextTranslateCTM(context, column * width , row * width); // sätter origo till position
@@ -238,8 +232,11 @@
     
     [color set];
     if (rotate) {
-        [text drawInRect:CGRectMake(-targetX + (textMaxWidth - stringSize.width) - width * 3,
-                                    -width * 2, stringSize.width,stringSize.height) withFont:font];
+        [text drawInRect:CGRectMake(
+                                    -targetX + (textMaxWidth - stringSize.width) - width * 3,
+                                    -width * 2,
+                                    stringSize.width,
+                                    stringSize.height) withFont:font];
     } else {
         [text drawInRect:CGRectMake(column * width + width * 2,row * width, stringSize.width,stringSize.height) withFont:font];
     }
@@ -252,8 +249,6 @@
                                          green:233.0f/255.0f
                                           blue:233.0f/255.0f
                                          alpha:1.0f];
-    
-    UIColor *blackColor = [UIColor grayColor];
     
     CGContextBeginPath(context);
     // lines

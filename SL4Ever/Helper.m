@@ -82,7 +82,9 @@
     for (int i = 0; i < favs.count; i++) {
         FavouriteRoute *fr = [[FavouriteRoute alloc] init];
         
-        NSMutableArray *parts = [[[favs objectAtIndex:i] componentsSeparatedByString:@"|"] mutableCopy];
+        NSMutableArray *parts = [
+                                 [[favs objectAtIndex:i] componentsSeparatedByString:@"|"]
+                                 mutableCopy];
         if (parts.count < 2) {
             continue;
         }
@@ -101,6 +103,10 @@
     favourites = [NSString stringWithFormat:@"%@;%@|%@", favourites, fr.name, fr.destinationStation.siteId];
     
     [userDefaults setObject:favourites forKey:@"favourites"];
+}
+
++ (NSMutableArray*) removeUserFavourite :(NSInteger)favouriteIndex {
+    return nil;
 }
 
 @end

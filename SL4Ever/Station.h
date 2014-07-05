@@ -15,11 +15,9 @@
 @property NSString* saId;
 @property NSString* lineColor;
 
-+ (NSArray*)stations;
 + (Station*) findStation :(NSString*)siteId;
-
 - (id) init;
-
-- (instancetype) initWithProperties :(NSString*)name :(NSString*)siteid :(NSString*)sa;
+- (instancetype) initWithProperties :(NSString*)name :(NSString*)siteid :(NSString*)sa :(NSString*)linecolor;
 + (NSMutableArray*)loadStations;
+
 @end

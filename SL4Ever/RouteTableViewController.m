@@ -37,8 +37,6 @@
     
     if ([userDefaults objectForKey:@"activePosition"] == nil) {
         [userDefaults setObject:@"0" forKey:@"activePosition"];
-    } else {
-        NSLog([userDefaults objectForKey:@"activePosition"]);
     }
     
     if ([userDefaults objectForKey:@"activeTime"] == nil) {
@@ -47,21 +45,11 @@
         
     }
     
-    NSLog(@"What's this?");
-    
-    NSArray *stations = [Station loadStations];
-    Station *os = [stations objectAtIndex:1];
-    Station *ds = [stations objectAtIndex:6];
-    
-    Station *os2 = [stations objectAtIndex:8];
-    Station *ds2 = [stations objectAtIndex:14];
-    
     routes = [NSMutableArray array];
     self.favouriteRoutes = [NSMutableArray array];
     FavouriteRoute *fr = [Helper.userFavourites objectAtIndex:self.orginFavouriteRouteIndex];
     
     [self.favouriteRoutes addObject:fr];
-    //[self.favouriteRoutes addObject:fr2];
     
     [self refreshRoutes :@"14:30" :self.favouriteRoutes];
 }
@@ -84,9 +72,6 @@
         NSError *error;
         TBXML *t = [TBXML newTBXMLWithXMLData:data error:&error];
 
-        TBXMLElement *queries = [TBXML childElementNamed:@"Queries" parentElement:t.rootXMLElement];
-        TBXMLElement *current = [TBXML childElementNamed:@"CurrentQuery" parentElement:queries];
-        NSString *q = [TBXML textForElement:current];
         TBXMLElement *trip = [TBXML childElementNamed:@"Trip" parentElement:t.rootXMLElement];
         int routeIndex = 0;
         do {
@@ -160,9 +145,6 @@
                     
                     [slRoute.subRoutes addObject:sr];
                     subRouteIndex++;
-                    
-                    NSLog([TBXML textForElement:depTime]);
-                    NSLog([TBXML elementName:subTrip]);
                 }
             } while ((subTrip = subTrip->nextSibling));
 
@@ -176,7 +158,6 @@
             [routes addObject:slRoute];
             routeIndex++;
         } while ((trip = trip->nextSibling));
-    int sd = 6;
 }
 
 - (void)didReceiveMemoryWarning
@@ -252,7 +233,7 @@
         
         Route *r = [routes objectAtIndex:indexPath.section - 1];
     
-        TableRouteViewCell *tableRouteViewCell = [self.view viewWithTag:5];
+        TableRouteViewCell *tableRouteViewCell = (TableRouteViewCell*)[self.view viewWithTag:5];
         tableRouteViewCell.route = r;
         CGRect f = tableRouteViewCell.frame;
         NSInteger h = [TableRouteViewCell calculateRowHeight:r];
