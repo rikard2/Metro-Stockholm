@@ -38,7 +38,13 @@
 
 + (NSInteger) activeOriginPosition {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [(NSString*)[userDefaults objectForKey:@"activeOriginPosition"] intValue];
+    
+    NSInteger ret = [(NSString*)[userDefaults objectForKey:@"activeOriginPosition"] intValue];
+    id i = [userDefaults objectForKey:@"activeOriginPosition"];
+    if (i == nil) {
+        return 0;
+    }
+    return [(NSString*)[i objectForKey:@"activeOriginPosition"] intValue];;
 }
 
 + (NSInteger) activeDestPosition {

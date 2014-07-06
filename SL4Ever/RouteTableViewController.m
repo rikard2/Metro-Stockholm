@@ -51,7 +51,7 @@
     
     [self.favouriteRoutes addObject:fr];
     
-    [self refreshRoutes :@"14:30" :self.favouriteRoutes];
+    [self refreshRoutes :Helper.nowTime :self.favouriteRoutes];
 }
 
 - (void) setActiveFavouriteRoute :(NSInteger)originIndex :(NSInteger)destIndex {
@@ -63,101 +63,118 @@
 {
     [routes removeAllObjects];
     
+    FavouriteRoute *frOrigin = [Helper.userFavourites objectAtIndex:[Helper activeOriginPosition]];
+    FavouriteRoute *frDest = [Helper.userFavourites objectAtIndex:[Helper activeDestPosition]];
     
-        FavouriteRoute *frOrigin = [Helper.userFavourites objectAtIndex:[Helper activeOriginPosition]];
-        FavouriteRoute *frDest = [Helper.userFavourites objectAtIndex:[Helper activeDestPosition]];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.trafiklab.se/sl/reseplanerare.xml?key=%@&S=%@&Z=%@&time=%@", Secrets.SL_API_KEY,frOrigin.destinationStation.siteId, frDest.destinationStation.siteId, time]];
-        NSData *data = [NSData dataWithContentsOfURL:url];
+    if ([frOrigin.destinationStation.siteId isEqualToString:frDest.destinationStation.siteId]) {
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:
+                  [NSString stringWithFormat:@"https://api.trafiklab.se/sl/reseplanerare.xml?key=%@&S=%@&Z=%@&time=%@",
+                   Secrets.SL_API_KEY,
+                   frOrigin.destinationStation.siteId,
+                   frDest.destinationStation.siteId,
+                   time]
+                  ];
+
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    NSError *error;
+    
+    TBXML *t = [TBXML newTBXMLWithXMLData:data error:&error];
+
+    TBXMLElement *trip = [TBXML childElementNamed:@"Trip" parentElement:t.rootXMLElement];
+    
+    int routeIndex = 0;
+    
+    do {
+        TBXMLElement *summary               = [TBXML childElementNamed:@"Summary" parentElement:trip];
+        TBXMLElement *summaryOrigin         = [TBXML childElementNamed:@"Origin" parentElement:summary];
+        TBXMLElement *summaryDestination    = [TBXML childElementNamed:@"Destination" parentElement:summary];
         
-        NSError *error;
-        TBXML *t = [TBXML newTBXMLWithXMLData:data error:&error];
+        Station *summaryOriginStation       = [[Station alloc] init];
+        summaryOriginStation.name           = [TBXML textForElement:summaryOrigin];
+        
+        Station *summaryDestinationStation  = [[Station alloc] init];
+        summaryDestinationStation.name      = [TBXML textForElement:summaryDestination];
+        
+        TBXMLElement *subTrip               = [TBXML childElementNamed:@"SubTrip" parentElement:trip];
 
-        TBXMLElement *trip = [TBXML childElementNamed:@"Trip" parentElement:t.rootXMLElement];
-        int routeIndex = 0;
+        Route *slRoute = [[Route alloc] init];
+        
+        [slRoute setStations :summaryOriginStation :summaryDestinationStation];
+        
+        slRoute.line = 1; // red line
+        
+        int subRouteIndex = 0;
+        
         do {
-            
-            TBXMLElement *summary = [TBXML childElementNamed:@"Summary" parentElement:trip];
-            TBXMLElement *summaryOrigin = [TBXML childElementNamed:@"Origin" parentElement:summary];
-            TBXMLElement *summaryDestination = [TBXML childElementNamed:@"Destination" parentElement:summary];
-            Station *summaryOriginStation = [[Station alloc] init];
-            summaryOriginStation.name = [TBXML textForElement:summaryOrigin];
-            
-            Station *summaryDestinationStation = [[Station alloc] init];
-            summaryDestinationStation.name = [TBXML textForElement:summaryDestination];
-            
-            TBXMLElement *subTrip = [TBXML childElementNamed:@"SubTrip" parentElement:trip];
-
-            Route *slRoute = [[Route alloc] init];
-            [slRoute setStations :summaryOriginStation :summaryDestinationStation];
-            slRoute.line = 1; // red line
-            
-            int subRouteIndex = 0;
-            do {
-                if (subTrip != nil) {
-                    TBXMLElement *depDate = [TBXML childElementNamed:@"DepartureDate" parentElement:subTrip];
-                    TBXMLElement *depTime = [TBXML childElementNamed:@"DepartureTime" parentElement:subTrip];
-                    TBXMLElement *arrDate = [TBXML childElementNamed:@"ArrivalDate" parentElement:subTrip];
-                    TBXMLElement *arrTime = [TBXML childElementNamed:@"ArrivalTime" parentElement:subTrip];
-                    TBXMLElement *origin = [TBXML childElementNamed:@"Origin" parentElement:subTrip];
-                    TBXMLElement *destination = [TBXML childElementNamed:@"Destination" parentElement:subTrip];
-                    
-                    TBXMLElement *transport = [TBXML childElementNamed:@"Transport" parentElement:subTrip];
-                    TBXMLElement *transportType = [TBXML childElementNamed:@"Type" parentElement:transport];
-                    TBXMLElement *transportName = [TBXML childElementNamed:@"Name" parentElement:transport];
-                    TBXMLElement *transportLine = [TBXML childElementNamed:@"Line" parentElement:transport];
-                    TBXMLElement *transportTowards = [TBXML childElementNamed:@"Towards" parentElement:transport];
-                    
-                    Station *originStation = [[Station alloc] init];
-                    originStation.name = [TBXML textForElement:origin];
-                    
-                    Station *destStation = [[Station alloc] init];
-                    destStation.name = [TBXML textForElement:destination];
-                    
-                    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                    [df setDateFormat:@"dd.MM.yy HH:mm"];
-                    
-                    NSString *depDateStr = [NSString stringWithFormat:@"%@ %@", [TBXML textForElement:depDate], [TBXML textForElement:depTime]];
-                    NSString *arrDateStr = [NSString stringWithFormat:@"%@ %@", [TBXML textForElement:arrDate], [TBXML textForElement:arrTime]];
-                    
-                    NSDate *originDate = [df dateFromString:depDateStr];
-                    NSDate *destDate = [df dateFromString:arrDateStr];
-                    
-                    Route *sr = [[Route alloc] init];
-                    [sr setStations :originStation :destStation];
-                    [sr setDates:originDate :destDate];
-                    sr.transportType = [TBXML textForElement:transportType];
-                    sr.transportName = [TBXML textForElement:transportName];
-                    sr.transportLine = [TBXML textForElement:transportLine];
-                    sr.transportTowards = [TBXML textForElement:transportTowards];
-                    
-                    sr.line = 1; // red line
-                    
-                    NSInteger ri = [routes count] - 1;
-                    
-                    if (routeIndex > 0 && subRouteIndex == 0) {
-                        Route *rootRoute = [routes objectAtIndex:ri];
-                        Route *rootSubRoute = [rootRoute.subRoutes objectAtIndex:subRouteIndex];
-                        [rootSubRoute.originDatesFuture addObject:originDate];
-                        [rootSubRoute.destDatesFututes addObject:destDate];
-                        [rootRoute.subRoutes replaceObjectAtIndex:subRouteIndex withObject:rootSubRoute];
-                        [routes replaceObjectAtIndex:ri withObject:rootRoute];
-                    }
-                    
-                    [slRoute.subRoutes addObject:sr];
-                    subRouteIndex++;
-                }
-            } while ((subTrip = subTrip->nextSibling));
-
-            if (routeIndex > 0) {
+            if (subTrip != nil) {
+                TBXMLElement *depDate = [TBXML childElementNamed:@"DepartureDate" parentElement:subTrip];
+                TBXMLElement *depTime = [TBXML childElementNamed:@"DepartureTime" parentElement:subTrip];
+                TBXMLElement *arrDate = [TBXML childElementNamed:@"ArrivalDate" parentElement:subTrip];
+                TBXMLElement *arrTime = [TBXML childElementNamed:@"ArrivalTime" parentElement:subTrip];
+                TBXMLElement *origin = [TBXML childElementNamed:@"Origin" parentElement:subTrip];
+                TBXMLElement *destination = [TBXML childElementNamed:@"Destination" parentElement:subTrip];
+                
+                TBXMLElement *transport = [TBXML childElementNamed:@"Transport" parentElement:subTrip];
+                TBXMLElement *transportType = [TBXML childElementNamed:@"Type" parentElement:transport];
+                TBXMLElement *transportName = [TBXML childElementNamed:@"Name" parentElement:transport];
+                TBXMLElement *transportLine = [TBXML childElementNamed:@"Line" parentElement:transport];
+                TBXMLElement *transportTowards = [TBXML childElementNamed:@"Towards" parentElement:transport];
+                
+                Station *originStation = [[Station alloc] init];
+                originStation.name = [TBXML textForElement:origin];
+                
+                Station *destStation = [[Station alloc] init];
+                destStation.name = [TBXML textForElement:destination];
+                
+                NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                [df setDateFormat:@"dd.MM.yy HH:mm"];
+                
+                NSString *depDateStr = [NSString stringWithFormat:@"%@ %@", [TBXML textForElement:depDate], [TBXML textForElement:depTime]];
+                NSString *arrDateStr = [NSString stringWithFormat:@"%@ %@", [TBXML textForElement:arrDate], [TBXML textForElement:arrTime]];
+                
+                NSDate *originDate = [df dateFromString:depDateStr];
+                NSDate *destDate = [df dateFromString:arrDateStr];
+                
+                Route *sr = [[Route alloc] init];
+                [sr setStations :originStation :destStation];
+                [sr setDates:originDate :destDate];
+                sr.transportType = [TBXML textForElement:transportType];
+                sr.transportName = [TBXML textForElement:transportName];
+                sr.transportLine = [TBXML textForElement:transportLine];
+                sr.transportTowards = [TBXML textForElement:transportTowards];
+                
+                sr.line = 1; // red line
+                
                 NSInteger ri = [routes count] - 1;
-                if ([Route sameRoutes:[routes objectAtIndex: ri] :slRoute]) {
-                    continue;
+                
+                if (routeIndex > 0 && subRouteIndex == 0) {
+                    Route *rootRoute = [routes objectAtIndex:ri];
+                    Route *rootSubRoute = [rootRoute.subRoutes objectAtIndex:subRouteIndex];
+                    [rootSubRoute.originDatesFuture addObject:originDate];
+                    [rootSubRoute.destDatesFututes addObject:destDate];
+                    [rootRoute.subRoutes replaceObjectAtIndex:subRouteIndex withObject:rootSubRoute];
+                    [routes replaceObjectAtIndex:ri withObject:rootRoute];
                 }
+                
+                [slRoute.subRoutes addObject:sr];
+                subRouteIndex++;
             }
-                     
-            [routes addObject:slRoute];
-            routeIndex++;
-        } while ((trip = trip->nextSibling));
+        } while ((subTrip = subTrip->nextSibling));
+
+        if (routeIndex > 0) {
+            NSInteger ri = [routes count] - 1;
+            if ([Route sameRoutes:[routes objectAtIndex: ri] :slRoute]) {
+                continue;
+            }
+        }
+                 
+        [routes addObject:slRoute];
+        routeIndex++;
+    } while ((trip = trip->nextSibling));
 }
 
 - (void)didReceiveMemoryWarning

@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2FBECBBC195753C500A879AE"
                BuildableName = "SL4Ever.app"
-               BlueprintName = "SL4Ever"
-               ReferencedContainer = "container:SL4Ever.xcodeproj">
+               BlueprintName = "MetroStockholm"
+               ReferencedContainer = "container:MetroStockholm.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2FBECBDC195753C500A879AE"
                BuildableName = "SL4EverTests.xctest"
-               BlueprintName = "SL4EverTests"
-               ReferencedContainer = "container:SL4Ever.xcodeproj">
+               BlueprintName = "MetroStockholmTests"
+               ReferencedContainer = "container:MetroStockholm.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FBECBBC195753C500A879AE"
             BuildableName = "SL4Ever.app"
-            BlueprintName = "SL4Ever"
-            ReferencedContainer = "container:SL4Ever.xcodeproj">
+            BlueprintName = "MetroStockholm"
+            ReferencedContainer = "container:MetroStockholm.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FBECBBC195753C500A879AE"
             BuildableName = "SL4Ever.app"
-            BlueprintName = "SL4Ever"
-            ReferencedContainer = "container:SL4Ever.xcodeproj">
+            BlueprintName = "MetroStockholm"
+            ReferencedContainer = "container:MetroStockholm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FBECBBC195753C500A879AE"
             BuildableName = "SL4Ever.app"
-            BlueprintName = "SL4Ever"
-            ReferencedContainer = "container:SL4Ever.xcodeproj">
+            BlueprintName = "MetroStockholm"
+            ReferencedContainer = "container:MetroStockholm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

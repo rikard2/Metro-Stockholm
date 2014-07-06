@@ -155,8 +155,8 @@
 				2F513FF3195DE5F000A416C7 /* stations.csv */,
 				2F513FED195D550100A416C7 /* TBXML.h */,
 				2F513FEE195D550100A416C7 /* TBXML.m */,
-				2FBECBC8195753C500A879AE /* SL4Ever */,
-				2FBECBE5195753C500A879AE /* SL4EverTests */,
+				2FBECBC8195753C500A879AE /* MetroStockholm */,
+				2FBECBE5195753C500A879AE /* MetroStockholmTests */,
 				2FBECBBF195753C500A879AE /* Frameworks */,
 				2FBECBBE195753C500A879AE /* Products */,
 			);
@@ -183,7 +183,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2FBECBC8195753C500A879AE /* SL4Ever */ = {
+		2FBECBC8195753C500A879AE /* MetroStockholm */ = {
 			isa = PBXGroup;
 			children = (
 				2F0022811965227600B3E3BD /* Secrets.h */,
@@ -219,6 +219,7 @@
 				2F513FE0195C0BF100A416C7 /* MetroDrawing.h */,
 				2F513FE1195C0BF100A416C7 /* MetroDrawing.m */,
 			);
+			name = MetroStockholm;
 			path = SL4Ever;
 			sourceTree = "<group>";
 		};
@@ -233,12 +234,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2FBECBE5195753C500A879AE /* SL4EverTests */ = {
+		2FBECBE5195753C500A879AE /* MetroStockholmTests */ = {
 			isa = PBXGroup;
 			children = (
 				2FBECBEB195753C500A879AE /* SL4EverTests.m */,
 				2FBECBE6195753C500A879AE /* Supporting Files */,
 			);
+			name = MetroStockholmTests;
 			path = SL4EverTests;
 			sourceTree = "<group>";
 		};
@@ -254,9 +256,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2FBECBBC195753C500A879AE /* SL4Ever */ = {
+		2FBECBBC195753C500A879AE /* MetroStockholm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FBECBEF195753C500A879AE /* Build configuration list for PBXNativeTarget "SL4Ever" */;
+			buildConfigurationList = 2FBECBEF195753C500A879AE /* Build configuration list for PBXNativeTarget "MetroStockholm" */;
 			buildPhases = (
 				2FBECBB9195753C500A879AE /* Sources */,
 				2FBECBBA195753C500A879AE /* Frameworks */,
@@ -266,14 +268,14 @@
 			);
 			dependencies = (
 			);
-			name = SL4Ever;
+			name = MetroStockholm;
 			productName = SL4Ever;
 			productReference = 2FBECBBD195753C500A879AE /* SL4Ever.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2FBECBDC195753C500A879AE /* SL4EverTests */ = {
+		2FBECBDC195753C500A879AE /* MetroStockholmTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FBECBF2195753C500A879AE /* Build configuration list for PBXNativeTarget "SL4EverTests" */;
+			buildConfigurationList = 2FBECBF2195753C500A879AE /* Build configuration list for PBXNativeTarget "MetroStockholmTests" */;
 			buildPhases = (
 				2FBECBD9195753C500A879AE /* Sources */,
 				2FBECBDA195753C500A879AE /* Frameworks */,
@@ -284,7 +286,7 @@
 			dependencies = (
 				2FBECBE4195753C500A879AE /* PBXTargetDependency */,
 			);
-			name = SL4EverTests;
+			name = MetroStockholmTests;
 			productName = SL4EverTests;
 			productReference = 2FBECBDD195753C500A879AE /* SL4EverTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -307,7 +309,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2FBECBB8195753C500A879AE /* Build configuration list for PBXProject "SL4Ever" */;
+			buildConfigurationList = 2FBECBB8195753C500A879AE /* Build configuration list for PBXProject "MetroStockholm" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -320,8 +322,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2FBECBBC195753C500A879AE /* SL4Ever */,
-				2FBECBDC195753C500A879AE /* SL4EverTests */,
+				2FBECBBC195753C500A879AE /* MetroStockholm */,
+				2FBECBDC195753C500A879AE /* MetroStockholmTests */,
 			);
 		};
 /* End PBXProject section */
@@ -390,7 +392,7 @@
 /* Begin PBXTargetDependency section */
 		2FBECBE4195753C500A879AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2FBECBBC195753C500A879AE /* SL4Ever */;
+			target = 2FBECBBC195753C500A879AE /* MetroStockholm */;
 			targetProxy = 2FBECBE3195753C500A879AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -560,7 +562,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FBECBB8195753C500A879AE /* Build configuration list for PBXProject "SL4Ever" */ = {
+		2FBECBB8195753C500A879AE /* Build configuration list for PBXProject "MetroStockholm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FBECBED195753C500A879AE /* Debug */,
@@ -569,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FBECBEF195753C500A879AE /* Build configuration list for PBXNativeTarget "SL4Ever" */ = {
+		2FBECBEF195753C500A879AE /* Build configuration list for PBXNativeTarget "MetroStockholm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FBECBF0195753C500A879AE /* Debug */,
@@ -578,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FBECBF2195753C500A879AE /* Build configuration list for PBXNativeTarget "SL4EverTests" */ = {
+		2FBECBF2195753C500A879AE /* Build configuration list for PBXNativeTarget "MetroStockholmTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FBECBF3195753C500A879AE /* Debug */,
